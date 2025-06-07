@@ -2,42 +2,67 @@
 <html>
 <head>
   <title>Babies Cruel</title>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background: url('https://i.ibb.co/VxpGCNF/bg-babiescruel.jpg') no-repeat center center fixed;
+      font-family: 'Anton', sans-serif;
+      background: url('URL_BACKGROUND_KAMU') no-repeat center center fixed;
       background-size: cover;
-      color: #fff;
+      color: #ffffff;
       text-align: center;
       padding: 120px;
+      position: relative;
+      margin: 0;
     }
+
+    .blood-effect {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('URL_EFEK_DARAH_KAMU') no-repeat top center;
+      background-size: contain;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.9;
+    }
+
     .container {
-      background: rgba(0, 0, 0, 0.6);
       padding: 120px;
       border-radius: 80px;
       max-width: 1600px;
       margin: auto;
+      position: relative;
+      z-index: 1;
+      background: rgba(0, 0, 0, 0.6);
     }
+
     img.pfp {
       width: 480px;
       height: 480px;
-      border-radius: 200%;
+      border-radius: 50%;
       margin-bottom: 80px;
-      border: 16px solid #fff;
+      border: 16px solid #000000;
     }
+
     h1 {
       font-size: 112px;
       margin-bottom: 40px;
     }
+
     p {
       font-size: 64px;
       margin-bottom: 100px;
     }
-    a {
-      display: block;
+
+    .link-button {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
       margin: 48px auto;
-      padding: 60px;
-      background: #ff69b4;
+      padding: 40px 60px;
+      background: #000000;
       color: white;
       text-decoration: none;
       width: 1000px;
@@ -45,26 +70,55 @@
       font-weight: bold;
       font-size: 64px;
       transition: 0.2s;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
     }
-    a:hover {
-      background: #ff1493;
+
+    .link-button img {
+      width: 80px;
+      height: 80px;
+      margin-right: 40px;
+    }
+
+    .link-button:hover {
+      background: #222222;
       transform: scale(1.05);
     }
   </style>
 </head>
 <body>
+
+  <!-- Efek darah -->
+  <div class="blood-effect"></div>
+
   <div class="container">
     <!-- Foto profil -->
-    <img class="pfp" src="https://i.ibb.co/nPzppyb/pfp-babiescruel.png" alt="Babies Cruel PFP">
+    <img class="pfp" src="URL_FOTO_PROFIL_KAMU" alt="Babies Cruel PFP">
     
     <!-- Judul dan deskripsi -->
     <h1>Babies Cruel</h1>
     <p>Explore our Web3 rebellion journey!</p>
     
-    <!-- Tautan -->
-    <a href="https://x.com/babiescruel?t=xxssMwYTE5TVSDpFZG-Ieg&s=09" target="_blank">🔗 X (Twitter)</a>
-    <a href="https://discord.gg/D7usNq6v" target="_blank">🎮 Join Discord</a>
-    <a href="https://opensea.io/collection/babiescruel" target="_blank">💎 View on OpenSea</a>
+    <!-- Tautan dengan logo di kiri -->
+    <a class="link-button" href="https://x.com/babiescruel?t=xxssMwYTE5TVSDpFZG-Ieg&s=09" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/X_logo_2023.svg" alt="X Logo">
+      Twitter
+    </a>
+    
+    <a class="link-button" href="https://discord.gg/D7usNq6v" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/3670/3670157.png" alt="Discord Logo">
+      Discord
+    </a>
+    
+    <a class="link-button" href="https://opensea.io/collection/babiescruel" target="_blank">
+      <img src="https://seeklogo.com/images/O/opensea-logo-8D74A8A5A0-seeklogo.com.png" alt="OpenSea Logo">
+      OpenSea
+    </a>
+
+    <a class="link-button" href="https://magiceden.io" target="_blank">
+      <img src="https://cryptologos.cc/logos/magic-eden-logo.png" alt="Magic Eden Logo">
+      Magic Eden
+    </a>
+
   </div>
 </body>
 </html>
