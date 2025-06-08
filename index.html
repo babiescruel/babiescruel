@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Babies Cruel</title>
 
-  <!-- ✅ Import Fonts -->
+  <!-- Import Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&family=Kanit:wght@400;600&family=Chakra+Petch:wght@500&display=swap" rel="stylesheet">
 
   <style>
@@ -13,16 +13,15 @@
       margin: 0;
       padding: 0;
       font-family: 'Kanit', sans-serif;
-      font-size: 50%;
       background: url('https://raw.githubusercontent.com/babiescruel/babiescruel/refs/heads/main/Tak%20berjudul40_20250607224010.png') no-repeat center center fixed;
       background-size: cover;
       color: white;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start;
       min-height: 100vh;
       padding-top: 30px;
+      overflow-x: hidden;
     }
 
     .pfp {
@@ -32,56 +31,24 @@
       background: url('https://raw.githubusercontent.com/babiescruel/babiescruel/refs/heads/main/Tak%20berjudul42_20250607210709.png') no-repeat center center;
       background-size: cover;
       margin-bottom: 10px;
+      z-index: 10;
     }
 
-    h1 {
-      font-family: 'Rubik Wet Paint', cursive;
-      font-size: 5rem;
-      font-weight: normal;
-      margin: 0;
-      text-shadow: 3px 3px #000;
-      opacity: 0; /* Mulai dengan opacity 0 */
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      animation: revealText 3s ease forwards, backToPlace 1s 3s forwards; /* Animasi muncul dan kembali */
-    }
-
-    /* Animasi untuk muncul satu per satu */
-    @keyframes revealText {
-      0% {
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(0.5);
-      }
-      50% {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1);
-      }
-      100% {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1);
-      }
-    }
-
-    /* Animasi untuk kembali ke posisi semula */
-    @keyframes backToPlace {
-      0% {
-        top: 50%;
-        left: 50%;
-      }
-      100% {
-        top: 30%;
-        left: 50%;
-        transform: translate(-50%, 0);
-      }
+    /* Container utama untuk semua konten kecuali animasi judul */
+    .main-content {
+      width: 100%;
+      max-width: 600px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      margin-top: 20px;
     }
 
     p.description {
       font-family: 'Kanit', sans-serif;
-      font-size: 2rem;
-      margin-top: 5px;
-      margin-bottom: 20px;
+      font-size: 1.5rem;
+      margin: 0;
       text-align: center;
       max-width: 90%;
       text-shadow: 1px 1px #000;
@@ -94,13 +61,12 @@
       background-color: rgba(255, 255, 255, 0.1);
       border: 2px solid white;
       padding: 12px 20px;
-      margin: 10px 0;
       border-radius: 30px 0 30px 0;
       width: 80%;
       max-width: 500px;
       text-decoration: none;
       color: white;
-      font-size: 1.8rem;
+      font-size: 1.6rem;
       font-weight: 500;
       transition: background-color 0.3s ease;
     }
@@ -114,27 +80,133 @@
       width: 25px;
       margin-right: 12px;
     }
+
+    /* --- Animasi judul opening --- */
+
+    /* Container animasi */
+    #opening-container {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1000;
+      background: transparent;
+      display: flex;
+      gap: 0.8rem;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    /* Sembunyikan main content saat opening */
+    body.loading .main-content,
+    body.loading .pfp {
+      visibility: hidden;
+    }
+
+    /* Huruf terpisah */
+    #opening-container span {
+      font-family: 'Rubik Wet Paint', cursive;
+      font-size: clamp(3rem, 8vw, 6rem);
+      color: white;
+      opacity: 0;
+      transform: translateY(-100px);
+      text-shadow: 3px 3px #000;
+      display: inline-block;
+      animation-fill-mode: forwards;
+    }
+
+    /* Animasi huruf satu per satu turun dan muncul */
+    /* Delay disesuaikan per huruf di JS */
+
+    /* Animasi bergabung ke posisi tengah */
+    #opening-container.bring-together {
+      gap: 0.1rem;
+      animation: moveTogether 1.2s forwards;
+    }
+
+    @keyframes moveTogether {
+      from {
+        gap: 0.8rem;
+      }
+      to {
+        gap: 0.1rem;
+      }
+    }
   </style>
 </head>
-<body>
+<body class="loading">
+
+  <!-- Animasi judul opening -->
+  <div id="opening-container">
+    <!-- Huruf dimunculkan pakai JS -->
+  </div>
+
   <div class="pfp"></div>
-  <h1>Babies Cruel</h1> <!-- Judul dengan animasi -->
-  <p class="description">Explore the cruel and cute world of Babies Cruel, where every pixel holds a spark of rebellion.</p>
 
-  <a class="link-button" href="https://opensea.io/collection/babiescruel" target="_blank">
-    <img src="https://raw.githubusercontent.com/babiescruel/babiescruel/refs/heads/main/Tak%20berjudul42_20250607204045.png" alt="OpenSea"> BUY BABIES
-  </a>
+  <div class="main-content">
+    <h1 style="font-family: 'Rubik Wet Paint', cursive; font-size: clamp(2rem, 6vw, 4rem); margin: 0; text-shadow: 3px 3px #000;">
+      Babies Cruel
+    </h1>
+    <p class="description">Explore the cruel and cute world of Babies Cruel, where every pixel holds a spark of rebellion.</p>
 
-  <a class="link-button" href="https://discord.gg/D7usNq6v" target="_blank">
-    <img src="https://raw.githubusercontent.com/babiescruel/babiescruel/refs/heads/main/Tak%20berjudul42_20250607204040.png" alt="Discord"> JOIN BABIES
-  </a>
+    <a class="link-button" href="https://opensea.io/collection/babiescruel" target="_blank">
+      <img src="https://raw.githubusercontent.com/babiescruel/babiescruel/refs/heads/main/Tak%20berjudul42_20250607204045.png" alt="OpenSea"> BUY BABIES
+    </a>
 
-  <a class="link-button" href="https://x.com/babiescruel?t=p0gvFYRrBeUWjkxAzUG_Ig&s=09" target="_blank">
-    <img src="https://raw.githubusercontent.com/babiescruel/babiescruel/refs/heads/main/Tak%20berjudul42_20250607204032.png" alt="Twitter"> FOLLOW ON X
-  </a>
+    <a class="link-button" href="https://discord.gg/D7usNq6v" target="_blank">
+      <img src="https://raw.githubusercontent.com/babiescruel/babiescruel/refs/heads/main/Tak%20berjudul42_20250607204040.png" alt="Discord"> JOIN BABIES
+    </a>
 
-  <a class="link-button" href="https://opensea.io/collection/babiescruel" target="_blank">
-    <img src="https://raw.githubusercontent.com/babiescruel/babiescruel/refs/heads/main/Tak%20berjudul42_20250607204304.png" alt="Website"> WEBSITE
-  </a>
+    <a class="link-button" href="https://x.com/babiescruel?t=p0gvFYRrBeUWjkxAzUG_Ig&s=09" target="_blank">
+      <img src="https://raw.githubusercontent.com/babiescruel/babiescruel/refs/heads/main/Tak%20berjudul42_20250607204032.png" alt="Twitter"> FOLLOW ON X
+    </a>
+
+    <a class="link-button" href="https://opensea.io/collection/babiescruel" target="_blank">
+      <img src="https://raw.githubusercontent.com/babiescruel/babiescruel/refs/heads/main/Tak%20berjudul42_20250607204304.png" alt="Website"> WEBSITE
+    </a>
+  </div>
+
+  <script>
+    // Tulisan judul
+    const title = "BABIES CRUEL";
+    const openingContainer = document.getElementById('opening-container');
+
+    // Bikin span per huruf dengan animasi delay
+    title.split('').forEach((char, i) => {
+      const span = document.createElement('span');
+      span.textContent = char === ' ' ? '\u00A0' : char; // spasi pakai non-breaking space
+      span.style.animation = `dropIn 0.5s ease forwards`;
+      span.style.animationDelay = `${i * 0.15}s`;
+      openingContainer.appendChild(span);
+    });
+
+    // Keyframes animasi dropIn via JS (karena butuh delay individual)
+    const styleSheet = document.createElement('style');
+    styleSheet.innerText = `
+      @keyframes dropIn {
+        0% {
+          opacity: 0;
+          transform: translateY(-100px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    `;
+    document.head.appendChild(styleSheet);
+
+    // Setelah semua huruf muncul, animasi gabung (1 detik delay)
+    setTimeout(() => {
+      openingContainer.classList.add('bring-together');
+    }, title.length * 150 + 800);
+
+    // Setelah gabung selesai, sembunyikan opening dan tampilkan konten utama
+    setTimeout(() => {
+      document.body.classList.remove('loading');
+      openingContainer.style.display = 'none';
+    }, title.length * 150 + 2000);
+  </script>
+
 </body>
 </html>
