@@ -9,7 +9,8 @@
       margin: 0;
       padding: 0;
       font-family: 'Kanit', sans-serif;
-      background-color: black;
+      background: url('https://raw.githubusercontent.com/babiescruel/babiescruel/refs/heads/main/Tak%20berjudul53_20250615001523.png') no-repeat center top;
+      background-size: cover;
       color: white;
       overflow-x: hidden;
     }#loading-screen {
@@ -34,21 +35,11 @@
 .character {
   position: fixed;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 5%;
+  transform: translateX(0);
   width: 250px;
   height: auto;
-  z-index: 1;
-}
-
-.bg-rope {
-  position: fixed;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  height: 100vh;
-  width: auto;
-  z-index: 0;
+  z-index: 10;
 }
 
 .section {
@@ -88,8 +79,7 @@
   <div id="loading-screen">
     <img src="https://raw.githubusercontent.com/babiescruel/babiescruel/refs/heads/main/Tak%20berjudul42_20250607210709.png" width="100"/>
     <div id="loading-percent">Loading... 0%</div>
-  </div>  <!-- Hanging Character -->  <img class="character" src="https://raw.githubusercontent.com/babiescruel/babiescruel/refs/heads/main/Tak%20berjudul49_20250614231326.png" alt="Character">
-  <img class="bg-rope" src="https://raw.githubusercontent.com/babiescruel/babiescruel/refs/heads/main/Tak%20berjudul53_20250615001523.png" alt="Background Rope">  <!-- Sections -->  <div class="section" id="about">
+  </div>  <!-- Hanging Character -->  <img class="character" src="https://raw.githubusercontent.com/babiescruel/babiescruel/refs/heads/main/Tak%20berjudul49_20250614231326.png" alt="Character">  <!-- Sections -->  <div class="section" id="about">
     ABOUT
     <p>Babies Cruel is a rebellious baby NFT collection on a mission to make Web3 fun and beginner-friendly — with HD visuals and a vibrant, welcoming community.</p>
   </div>  <div class="section" id="collections">
