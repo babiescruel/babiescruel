@@ -26,53 +26,49 @@
       z-index: 10;
     }
 
+    /* Intro text animation */
     .intro-container {
       position: fixed;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      text-align: center;
       z-index: 1000;
-    }
-
-    .intro-image {
-      /* Placeholder style, replace this with actual image src and styling */
-      width: 120px;
-      height: 120px;
-      margin-bottom: 20px;
-      border-radius: 12px;
-      object-fit: cover;
-      border: 2px solid white;
-      box-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
+      animation: fadeOut 1s ease-in-out 3s forwards;
     }
 
     .intro-text {
       font-family: 'Rubik Wet Paint', cursive;
-      font-size: clamp(2.5rem, 7vw, 6rem);
-      color: #fff;
-      text-shadow: 0 0 10px #ff00cc, 0 0 20px #ff00cc, 0 0 30px #ff00cc;
-      background: linear-gradient(45deg, #ff00cc, #3333ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      opacity: 0;
-      animation: fadeIn 2s ease forwards;
+      font-size: clamp(3rem, 8vw, 6rem);
+      color: red;
+      text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000;
+      animation: scaleIn 1.5s ease-out;
     }
 
-    @keyframes fadeIn {
-      to {
+    @keyframes scaleIn {
+      0% {
+        transform: translate(-50%, -50%) scale(0.5);
+        opacity: 0;
+      }
+      100% {
+        transform: translate(-50%, -50%) scale(1);
         opacity: 1;
       }
     }
 
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+
     .section {
-      height: 100vh;
+      min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
       text-align: center;
       flex-direction: column;
-      font-family: 'Rubik Wet Paint', cursive;
-      font-size: clamp(2rem, 5vw, 4rem);
       padding: 2rem;
       opacity: 0;
       transition: opacity 1s ease;
@@ -80,6 +76,15 @@
 
     .section.visible {
       opacity: 1;
+    }
+
+    .section-title {
+      font-family: 'Rubik Wet Paint', cursive;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      background: linear-gradient(90deg, #ff0000, #7300ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1rem;
     }
 
     .section p, .section a {
@@ -97,10 +102,8 @@
 </head>
 <body>
 
-  <!-- Intro Container with Optional Image -->
+  <!-- Intro Only -->
   <div class="intro-container">
-    <!-- Tempat untuk gambar di atas font -->
-    <img class="intro-image" src="https://via.placeholder.com/120" alt="Placeholder Image">
     <div class="intro-text">BABIES CRUEL</div>
   </div>
 
@@ -109,19 +112,22 @@
 
   <!-- Sections -->
   <div class="section" id="about">
-    ABOUT
+    <div class="section-title">ABOUT</div>
     <p>Babies Cruel is a rebellious baby NFT collection on a mission to make Web3 fun and beginner-friendly — with HD visuals and a vibrant, welcoming community.</p>
   </div>
+
   <div class="section" id="collections">
-    COLLECTION
+    <div class="section-title">COLLECTION</div>
     <p><a href="https://opensea.io/collection/babiescruel" target="_blank">View on OpenSea</a></p>
   </div>
+
   <div class="section" id="community">
-    COMMUNITY
+    <div class="section-title">COMMUNITY</div>
     <p><a href="https://discord.gg/EfVGMyQG" target="_blank">Join our Discord</a></p>
   </div>
+
   <div class="section" id="vip">
-    VIP
+    <div class="section-title">VIP</div>
     <p>Not yet available</p>
   </div>
 
